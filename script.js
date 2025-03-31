@@ -1,12 +1,14 @@
 let fields = [
-    null, 'cross', 'circle',
-    'circle', null, null,
+    null, null, null,
+    null, null, null,
     null, null, null
 ];
 
 function init() {
     render()
 }
+
+let currentPlayer = 'cross';
 
 function render() {
     let contentDiv = document.getElementById("content");
@@ -24,11 +26,25 @@ function render() {
                 symbol = '<div class="circle"></div>';
             }
             
-            tableHTML += `<td>${symbol}</td>`;
+            tableHTML += `<td onclick="handleClick(${index})">${symbol}</td>`;
         }
         tableHTML += "</tr>";
     }
     
     tableHTML += "</table>";
     contentDiv.innerHTML = tableHTML;
+}
+
+function handleClick(index) {
+    if (fields[index] === null) {
+        fields[index] = currentPlayer;
+        
+        if (currentPlayer === 'cross') {
+            currentPlayer = 'circle';
+        } else {
+            currentPlayer = 'cross';
+        }
+        
+        render();
+    }
 }
