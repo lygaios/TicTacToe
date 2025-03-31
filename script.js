@@ -16,14 +16,12 @@ function render() {
         tableHTML += "<tr>";
         for (let j = 0; j < 3; j++) {
             let index = i * 3 + j;
-            let symbol;
-            
+            let symbol = "";
+
             if (fields[index] === 'cross') {
-                symbol = 'X';
+                symbol = '<div class="cross"></div>';
             } else if (fields[index] === 'circle') {
-                symbol = 'O';
-            } else {
-                symbol = "";
+                symbol = '<div class="circle"></div>';
             }
             
             tableHTML += `<td>${symbol}</td>`;
