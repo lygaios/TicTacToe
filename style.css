@@ -154,3 +154,10 @@ td:hover {
       opacity: 1;
   }
 }
+#winning-line {
+  position: absolute;
+  height: 5px;
+  background-color: white;
+  transition: 0.3s ease-in-out;
+  opacity: 0;
+}
