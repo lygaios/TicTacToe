@@ -10,6 +10,10 @@ function init() {
 
 let currentPlayer = 'cross';
 
+document.addEventListener("DOMContentLoaded", function() {
+    document.getElementById("restart").addEventListener("click", restartGame);
+});
+
 function render() {
     let contentDiv = document.getElementById("content");
     let tableHTML = "<div class='game-container'><table id='game-table'>";
@@ -90,4 +94,15 @@ function drawWinningLine(combination) {
     line.style.transformOrigin = "left center";
     line.style.transform = `translate(${left}px, ${top}px) rotate(${angle}deg)`;
     line.style.opacity = "1";
+}
+
+function restartGame() {
+    fields = [
+        null, null, null,
+        null, null, null,
+        null, null, null
+    ];
+    currentPlayer = 'cross';
+    document.getElementById("winning-line").style.opacity = "0";
+    render();
 }
