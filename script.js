@@ -4,6 +4,10 @@ let fields = [
     null, null, null
 ];
 
+function init() {
+    render()
+}
+
 function render() {
     let contentDiv = document.getElementById("content");
     let tableHTML = "<table>";
